@@ -11,8 +11,18 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/series', 'SeriesController@index');
+Route::get('/series/adicionar', 'SeriesController@create');
 
-Route::get('/series', 'SeriesController@listarSeries');
+
+
+
+
+
+Route::get('usuarios', ['as' => 'users.index', 'uses' => 'UsersController@index']);
+Route::get('/', function() {
+
+
+    return redirect()->route('users.index');
+
+});

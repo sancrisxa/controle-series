@@ -2,12 +2,15 @@
 
 
 namespace App\Http\Controllers;
+use Illuminate\Http\Request;
 
 class SeriesController extends Controller
 {
 
-    public function listarSeries()
+    public function index(Request $request)
     {
+
+        echo $request->query('parametro');
 
         $series = [
 
@@ -17,18 +20,13 @@ class SeriesController extends Controller
 
         ];
 
-        $html = "<ul>";
+        return view('series.index', compact('series'));
 
-            foreach($series as $serie) {
+    }
 
-                $html .= "<li>$serie</li>";
-
-            }
-
-        $html = "</ul>";
-
-        return $html;
-
+    public function create()
+    {
+        return view('series.create');
     }
 
 }
