@@ -10,19 +10,6 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/series', 'SeriesController@index');
-Route::get('/series/adicionar', 'SeriesController@create');
-
-
-
-
-
-
-Route::get('usuarios', ['as' => 'users.index', 'uses' => 'UsersController@index']);
-Route::get('/', function() {
-
-
-    return redirect()->route('users.index');
-
-});
+Route::get('/series/criar', 'SeriesController@create');
+Route::post('/series/criar', 'SeriesController@store');
